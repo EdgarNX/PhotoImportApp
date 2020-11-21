@@ -20,7 +20,8 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     public void getPhoto() {
-
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 1);
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -46,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
             getPhoto();
         }
 
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 1);
     }
 
     @Override
